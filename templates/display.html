@@ -1,0 +1,186 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Rock-Paper-Scissors Game</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            margin: 20px;-->
+<!--        }-->
+
+<!--        input[type="text"] {-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+
+<!--        input[type="submit"] {-->
+<!--            padding: 10px 20px;-->
+<!--            background-color: #4CAF50;-->
+<!--            color: white;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        input[type="submit"]:hover {-->
+<!--            background-color: #3e8e41;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Rock-Paper-Scissors Game</h1>-->
+
+    <form method="post" action="read">
+        {% csrf_token %}
+
+<!--        <label for="user_choice 1">Enter your choice (r, p, or s):</label>-->
+<!--        <input type="text" id="user_choice 1" name="txtno1" value="{{N1}}" placeholder="Enter r, p, or s" required>-->
+<!--        <input type="text" id="user_choice 2" name="txtno3" value="{{N3}}" placeholder="Enter r, p, or s trail 2" required>-->
+<!--        <input type="text" id="user_choice 3" name="txtno4" value="{{N4}}" placeholder="Enter r, p, or s trail 3" required>-->
+<!--       comp1: <input type="text" id="u_choice" name="txtno2" value="{{N2}}" placeholder="pc choice" readonly>-->
+<!--        comp2:<input type="text" id="u5_choice" name="txtno5" value="{{N5}}" placeholder="pc choice" readonly>-->
+<!--        comp3:<input type="text" id="u6_choice" name="txtno6" value="{{N6}}" placeholder="pc choice" readonly>-->
+
+<!--        <label for="result">Result:</label>-->
+<!--        <input type="text" id="result" name="result" value="{{res}}" readonly>-->
+
+<!--        <input type="submit" value="Play">-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Rock-Paper-Scissors Game</title>-->
+<!--    <style>-->
+<!--        /* ... (your CSS styles) ... */-->
+<!--        .computer-choice {-->
+<!--            background-color: green;-->
+<!--            color: brown;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Rock-Paper-Scissors Game</h1>-->
+
+<!--    <form method="post" action="read">-->
+<!--        {% csrf_token %}-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>Your Choice</th>-->
+<!--            <th>Computer Choice</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="text" id="user_choice_1" name="txtno1" placeholder="Enter r, p, or s" value="{{N1}}" required></td>-->
+<!--            <td><input type="text" class="computer-choice" id="computer_choice_1" name="computer_choice_1" value="{{N2}}" readonly></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="text" id="user_choice_2" name="txtno3" placeholder="Enter r, p, or s" value="{{N3}}" required></td>-->
+<!--            <td><input type="text" class="computer-choice" id="computer_choice_2" name="computer_choice_2" value="{{N5}}" readonly></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="text" id="user_choice_3" name="txtno4" placeholder="Enter r, p, or s" value="{{N4}}" required></td>-->
+<!--            <td><input type="text" class="computer-choice" id="computer_choice_3" name="computer_choice_3" value="{{N6}}" readonly></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+<!--    <label for="result">Result:</label>-->
+<!--    <input type="text" id="result" name="result" value="{{res}}"readonly>-->
+
+<!--    <input type="submit" value="Play">-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock-Paper-Scissors Game</title>
+    <style>
+        .game-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color:black;
+            color:white;
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+
+        th,td{
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        .computer-choice {
+            background-color: yellow;
+            color: black;
+        }
+        #user_choice_1, #user_choice_2, #user_choice_3{
+         background-color: lightgreen;
+            color: black;
+        }
+        #result{
+        background-color:black;
+        color: white;
+        }
+        input[type="submit"] {
+
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+   }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rock-Paper-Scissors Game</h1>
+
+        <form method="post" action="read">
+            {% csrf_token %}
+
+            <table>
+                <tr>
+                    <th>Your Choice</th>
+                    <th>Computer Choice</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="user_choice_1" name="txtno1" placeholder="Enter r, p, or s" value="{{ N1 }}" required></td>
+                    <td><input type="text" class="computer-choice" id="computer_choice_1" name="txtno2" value="{{ N2 }}" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="user_choice_2" name="txtno3" placeholder="Enter r, p, or s" value="{{ N3 }}" required></td>
+                    <td><input type="text" class="computer-choice" id="computer_choice_2" name="txtno5" value="{{ N5 }}" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="user_choice_3" name="txtno4" placeholder="Enter r, p, or s" value="{{ N4 }}" required></td>
+                    <td><input type="text" class="computer-choice" id="computer_choice_3" name="txtno6" value="{{ N6 }}" readonly></td>
+                </tr>
+            </table>
+
+            <label for="result">Result:</label>
+            <input type="text" id="result" name="result" value="{{ res }}" readonly>
+
+            <input type="submit" value="Play">
+        </form>
+    </div>
+</body>
+</html>
